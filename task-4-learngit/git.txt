@@ -1,0 +1,45 @@
+//Learning Git
+Git clone < link>
+Git status 
+Git add <file name >  or Git add. 
+Git commit -m "some message"
+Git push origin main 
+ ls  -la  (check by this if there is git Or not if not then use git init and after do all the above step) 
+Git init 
+(When push folder on github) 
+Git remote add origin <http link >
+Git remote -v
+Git branch
+Git branch -M main
+Git branch
+Git push origin main
+(Git push -u origin main) 
+Branch command
+Git checkout (to navigate between branches) 
+Git checkout -b ( to create new branch) 
+Git branch -d < branch name >
+Git pull origin main ( fetch content from remote github to local vs code) 
+
+Git diff <branch name>
+Git checkout main 
+Git merge <(branch name) 
+Git add. 
+Git commit
+Git push origin main
+
+Git reset <file name>
+Git reset HEAD~1
+Get reset <commit hash>using git log
+Get reset --hard <commit hash >
+
+
+Git checkout -b <new branch name>
+Git branch -d <branch name to delete >
+Git tag -a <versionname><latestcommitid>-m"message"
+Git stash
+Git pull 
+
+
+
+
+
