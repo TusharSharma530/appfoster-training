@@ -1,0 +1,140 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Left section */
+.left-content {
+    flex: 2;
+    padding: 30px;
+}
+
+.section-title {
+    color: #0d9488;
+    font-size: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title i {
+    margin-right: 10px;
+}
+
+.section-content {
+    margin-bottom: 30px;
+}
+
+.section-content h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.section-content p {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-top: 8px;
+}
+
+.section-content a {
+    color: #0ea5e9;
+    text-decoration: none;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.skill-bar {
+    background-color: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.skill-level {
+    display: block;
+    background-color: #6366f1;
+    height: 8px;
+    border-radius: 10px;
+}
+
+/* Right section */
+.sidebar {
+    flex: 1;
+    background-color: #48359A;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.sidebar h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.sidebar p {
+    color: #d1d5db;
+    font-size: 0.875rem;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info a {
+    display: block;
+    color: #fff;
+    font-size: 0.875rem;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.education, .languages {
+    margin-top: 20px;
+}
+
+.education h3, .languages h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.education p, .languages p {
+    font-size: 0.875rem;
+}
+
+.languages p span {
+    display: block;
+}
+
