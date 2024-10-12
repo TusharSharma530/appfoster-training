@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+legend {
+    font-weight: bold;
+    color: #333;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 150px 1fr 150px 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+input[type="text"], input[type="date"], input[type="email"], select {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+    height: 38px;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+input[type="checkbox"] {
+    margin-left: 8px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group label {
+    margin-right: 20px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 25px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="reset"] {
+    background-color: #dc3545;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button[type="reset"]:hover {
+    background-color: #c82333;
+}
+
+/* Additional styles for better alignment */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+    color: #888;
+}
+
+input[type="text"], input[type="date"], input[type="email"], select {
+    height: 38px; /* Ensure uniform height */
+    padding: 8px;
+    font-size: 14px;
+}
+
+fieldset {
+    margin-bottom: 20px; /* Added more margin between sections */
+    padding-bottom: 10px;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <form action="#" method="post">
+            <!-- Primary Details -->
+            <fieldset>
+                <legend>Primary Details</legend>
+                <div class="form-group">
+                    <label for="medicare">Medicare No</label>
+                    <input type="text" id="medicare" name="medicare">
+                    <label for="valid-till">Valid Till</label>
+                    <input type="text" id="valid-till" name="valid-till" placeholder="mm/yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <select id="title" name="title">
+                        <option value="none">None</option>
+                        <option value="mr">Mr.</option>
+                        <option value="mrs">Mrs.</option>
+                        <option value="ms">Ms.</option>
+                    </select>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Lastname, Firstname, Middle">
+                </div>
+                <div class="form-group">
+                    <label for="preferred-name">Pref. Name</label>
+                    <input type="text" id="preferred-name" name="preferred-name">
+                    <label for="dob">DOB</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="sex" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="sex" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <label for="family-name">Family Name</label>
+                    <input type="text" id="family-name" name="family-name" maxlength="1" size="1">
+                </div>
+            </fieldset>
+
+            <!-- Contact Details -->
+            <fieldset>
+                <legend>Contact Details</legend>
+                <div class="form-group">
+                    <label for="phone-home">Phone (Home)</label>
+                    <input type="text" id="phone-home" name="phone-home">
+                    <label for="phone-work">Phone (Work)</label>
+                    <input type="text" id="phone-work" name="phone-work">
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" id="mobile" name="mobile">
+                    <label for="fax">Fax</label>
+                    <input type="text" id="fax" name="fax">
+                </div>
+                <div class="form-group">
+                    <label for="next-of-kin">Next of Kin</label>
+                    <input type="text" id="next-of-kin" name="next-of-kin">
+                    <label for="next-of-kin-phone">Next of Kin Phone</label>
+                    <input type="text" id="next-of-kin-phone" name="next-of-kin-phone">
+                </div>
+                <div class="form-group">
+                    <label for="emergency-no">Emerg. No</label>
+                    <input type="text" id="emergency-no" name="emergency-no">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </fieldset>
+
+            <!-- Address Details -->
+            <fieldset>
+                <legend>Address Details</legend>
+                <div class="form-group">
+                    <label for="residential-address-1">Residential Address</label>
+                    <input type="text" id="residential-address-1" name="residential-address-1" placeholder="Address 1">
+                    <input type="text" id="residential-address-2" name="residential-address-2" placeholder="Address 2">
+                </div>
+                <div class="form-group">
+                    <label for="suburb">Suburb</label>
+                    <input type="text" id="suburb" name="suburb">
+                    <label for="state">State</label>
+                    <select id="state" name="state">
+                        <option value="VIC">VIC</option>
+                        <option value="NSW">NSW</option>
+                        <option value="QLD">QLD</option>
+                    </select>
+                    <label for="postal-code">Postal Code</label>
+                    <input type="text" id="postal-code" name="postal-code">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" value="AUSTRALIA">
+                </div>
+                <div class="form-group">
+                    <label for="mailing-same">Are Mailing and Residential Address Same?</label>
+                    <input type="checkbox" id="mailing-same" name="mailing-same">
+                </div>
+                <div class="form-group">
+                    <label for="mailing-address-1">Mailing Address</label>
+                    <input type="text" id="mailing-address-1" name="mailing-address-1" placeholder="Address 1">
+                    <input type="text" id="mailing-address-2" name="mailing-address-2" placeholder="Address 2">
+                </div>
+                <div class="form-group">
+                    <label for="mailing-suburb">Suburb</label>
+                    <input type="text" id="mailing-suburb" name="mailing-suburb">
+                    <label for="mailing-state">State</label>
+                    <select id="mailing-state" name="mailing-state">
+                        <option value="VIC">VIC</option>
+                        <option value="NSW">NSW</option>
+                        <option value="QLD">QLD</option>
+                    </select>
+                    <label for="mailing-postal-code">Postal Code</label>
+                    <input type="text" id="mailing-postal-code" name="mailing-postal-code">
+                    <label for="mailing-country">Country</label>
+                    <input type="text" id="mailing-country" name="mailing-country" value="AUSTRALIA">
+                </div>
+            </fieldset>
+
+            <!-- IHI Section -->
+            <fieldset>
+                <div class="form-group">
+                    <label for="ihi-number">IHI Number 80036</label>
+                    <input type="text" id="ihi-number" name="ihi-number">
+                    <label for="number-status">Number Status</label>
+                    <input type="text" id="number-status" name="number-status">
+                </div>
+                <div class="form-group">
+                    <label for="record-status">Record Status</label>
+                    <input type="text" id="record-status" name="record-status">
+                    <label for="last-updated">Last Updated</label>
+                    <input type="text" id="last-updated" name="last-updated">
+                </div>
+            </fieldset>
+
+            <!-- Submit and Clear Buttons -->
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
