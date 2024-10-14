@@ -1,0 +1,31 @@
+    1 ls (display all content in current dir)
+    2  touch file.txt (creating a new file ) ----->Linux
+    3  code file.txt 
+    4  cat file.txt (is used in Unix/Linux to display the content of a file) ------>Linux
+    5  ls -l  (command in Unix/Linux is used to list directory contents in a detailed (long) format.)
+    6  ls
+    7  mkdir task-7 (creating a new folder)
+    8  ls
+        mkdir task-cli (creating a new folder)
+        cd task-cli    (switch folder from task-7 to task-cli)
+        rmdir rask-7    (deleting a empty folder)
+          
+     9  wc -l file2.txt (is used to count the number of lines in a file) ------->Linux
+    10  ls | wc -l
+    11 (Get-Content file1.txt).Count (count the number of lines in file ) ----> windows
+      New-Item -ItemType File -Path file2.txt( creating a new empty file )  -----> windows
+    12 "Hello World" | Out-File -FilePath file.txt (creating a new file with content hellow world ) ---->windows
+      rm file.txt (deleting a file)
+
+
+    13 mv file1.txt file2.txt (rename a file1.text to file2.txt)
+    14  ls
+    15  cp file2.txt file2_copy.txt (creating a copy of file2.txt)
+    16  ls
+    17 dir (listing all the files in current folder)
+     
+    
+
+
+
+
