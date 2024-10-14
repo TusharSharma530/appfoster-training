@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Portfolio Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Modern Body and Font */
+        body {
+            background: linear-gradient(135deg, #eef1f5, #dfe7fd);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Glassmorphism for Sidebar and Cards */
+        .sidebar {
+            margin-top: 20px; /* Adjust this value as needed */
+    background: rgba(45, 58, 133, 0.499);
+    backdrop-filter: blur(10px);
+    height: calc(80vh - 20px); /* Adjust height to account for margin */
+    width: 250px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    z-index: 1;
+        }
+
+        .sidebar a {
+            color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffd700;
+            border-radius: 10px;
+            
+            transform: translateX(10px);
+        }
+
+        .sidebar .nav-link i {
+            margin-right: 10px;
+        }
+
+        /* Neumorphism for Buttons */
+        .btn-neumorphic {
+            background: #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 9px 9px 18px #bebebe, -9px -9px 18px #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-neumorphic:hover {
+            box-shadow: inset 9px 9px 18px #bebebe, inset -9px -9px 18px #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Glassmorphism for Navbar */
+        .navbar {
+            background: rgba(0, 123, 255, 0.49);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .btn-neumorphic {
+            margin-right: 10px; /* Adjust as needed for desired spacing */
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Card styles with Glassmorphism */
+        .card {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Dynamic Progress Bars */
+        .progress {
+            height: 15px;
+            border-radius: 10px;
+            background-color: #ddd;
+        }
+
+        .progress-bar {
+            transition: width 0.4s ease;
+        }
+
+        /* Sidebar toggle for smaller screens */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -250px;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #181818;
+            color: #f5f5f5;
+        }
+
+        .dark-mode .card {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .dark-mode .navbar,
+        .dark-mode .sidebar {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: rgba(45, 58, 133, 0.499);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Profile Section */
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-3" id="sidebar">
+            <h4 class="text-center text-white mb-4">My Dashboard</h4>
+            <nav class="nav flex-column">
+                <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="#" class="nav-link"><i class="fas fa-tasks"></i> Projects</a>
+                <a href="#" class="nav-link"><i class="fas fa-folder"></i> Documents</a>
+                <a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-grow-1 p-4">
+            <!-- Navbar -->
+            <nav class="navbar navbar-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" aria-label="Toggle Sidebar" onclick="toggleSidebar()">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <span class="navbar-brand">Portfolio Dashboard</span>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-neumorphic" type="submit">Search</button>
+                    </form>
+                    <div class="d-flex align-items-center me-5">
+                        <button class="btn-neumorphic" aria-label="Notifications">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="btn-neumorphic" aria-label="Messages">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                        <button class="btn-neumorphic" aria-label="Theme Toggle" onclick="toggleDarkMode()">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <img src="https://media.istockphoto.com/id/1327592506/vector/default-avatar-photo-placeholder-icon-grey-profile-picture-business-man.jpg?s=612x612&w=0&k=20&c=BpR0FVaEa5F24GIw7K8nMWiiGmbb8qmhfkpXcp1dhQg=" class="rounded-circle profile-icon" alt="Profile Picture" aria-label="Profile Picture">
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Project Summary -->
+            <h3 class="mb-3 mt-4">Projects Overview</h3>
+            <div class="row text-center my-3">
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h4 class="text-primary">12</h4>
+                            <p>In Progress</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h4 class="text-success">8</h4>
+                            <p>Completed</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h4 class="text-warning">5</h4>
+                            <p>Upcoming</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h4 class="text-danger">2</h4>
+                            <p>Stalled</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Cards -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Alpha</h5>
+                            <p class="card-text">A comprehensive web development project aimed at modernizing UI.</p>
+                            <span class="badge bg-primary">Web Development</span>
+                            <span class="badge bg-success">On Track</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Beta</h5>
+                            <p class="card-text">A complex data science project to build predictive analytics tools.</p>
+                            <span class="badge bg-info">Data Science</span>
+                            <span class="badge bg-warning">At Risk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Gamma</h5>
+                            <p class="card-text">A mobile application development project focused on user engagement.</p>
+                            <span class="badge bg-warning">Mobile Dev</span>
+                            <span class="badge bg-danger">Delayed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Project Cards -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Delta</h5>
+                            <p class="card-text">An innovative IoT project aiming to enhance smart home technology.</p>
+                            <span class="badge bg-primary">IoT Development</span>
+                            <span class="badge bg-success">On Track</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Epsilon</h5>
+                            <p class="card-text">A machine learning project for real-time data analysis and insights.</p>
+                            <span class="badge bg-info">Machine Learning</span>
+                            <span class="badge bg-warning">At Risk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Zeta</h5>
+                            <p class="card-text">A blockchain project focused on secure digital transactions.</p>
+                            <span class="badge bg-warning">Blockchain</span>
+                            <span class="badge bg-danger">Delayed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Portfolio Dashboard | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const themeToggleIcon = document.querySelector('.btn-neumorphic[aria-label="Theme Toggle"] i');
+            themeToggleIcon.classList.toggle('fa-moon');
+            themeToggleIcon.classList.toggle('fa-sun');
+        }
+
+        document.querySelectorAll('.btn-neumorphic').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Feature coming soon!');
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
