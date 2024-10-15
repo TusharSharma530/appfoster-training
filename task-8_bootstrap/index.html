@@ -31,14 +31,15 @@
 
         /* Glassmorphism for Sidebar and Cards */
         .sidebar {
-            margin-top: 20px; /* Adjust this value as needed */
+            margin-top: 80px; /* Adjust this value as needed */
     background: rgba(45, 58, 133, 0.499);
     backdrop-filter: blur(10px);
     height: calc(80vh - 20px); /* Adjust height to account for margin */
-    width: 250px;
+    width: 190px;
+    margin-left: 10px;
     transition: transform 0.3s ease;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-    z-index: 1;
+    /* z-index: 1; */
         }
 
         .sidebar a {
@@ -81,9 +82,15 @@
             background: rgba(0, 123, 255, 0.49);
             backdrop-filter: blur(8px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%vh;
+            z-index: 2;
+            max-width: 1000vh;
+            /* margin-right: 300px; */
+            left: -220px;
+        
         }
         .navbar .btn-neumorphic {
-            margin-right: 10px; /* Adjust as needed for desired spacing */
+            margin-right: 20px; /* Adjust as needed for desired spacing */
         }
 
         /* Smooth scrolling */
@@ -161,7 +168,8 @@
             color: white;
             padding: 20px 0;
             text-align: center;
-            margin-top: 20px;
+            
+            margin-top: 10px;
         }
 
         /* Profile Section */
@@ -174,10 +182,13 @@
 </head>
 
 <body>
+    
     <div class="d-flex">
         <!-- Sidebar -->
+        
         <div class="sidebar p-3" id="sidebar">
-            <h4 class="text-center text-white mb-4">My Dashboard</h4>
+            
+            <!-- <h4 class="text-center text-white mb-4">M</h4> -->
             <nav class="nav flex-column">
                 <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
                 <a href="#" class="nav-link"><i class="fas fa-tasks"></i> Projects</a>
@@ -193,8 +204,10 @@
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" aria-label="Toggle Sidebar" onclick="toggleSidebar()">
                         <span class="navbar-toggler-icon"></span>
+                       
+                    <span class="navbar-brand ">Portfolio Dashboard</span>
                     </button>
-                    <span class="navbar-brand">Portfolio Dashboard</span>
+                    <!-- <span class="navbar-brand">Portfolio Dashboard</span> -->
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-neumorphic" type="submit">Search</button>
