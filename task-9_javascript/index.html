@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Splitter</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .wrapper {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 5px;
+            transition: transform 0.3s;
+        }
+
+        .block:hover {
+            transform: scale(1.1);
+        }
+
+        .blue {
+            background-color: #007bff;
+        }
+
+        .pink {
+            background-color: #ff639f;
+        }
+
+        .red {
+            background-color: #ff4d4d;
+        }
+
+        .yellow {
+            background-color: #ffcc00;
+        }
+
+        .green {
+            background-color: #28a745;
+        }
+
+        .purple {
+            background-color: #6f42c1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1>Number Splitter</h1>
+
+        <div>
+            <label for="numberInput">Enter a number:</label>
+            <input type="number" id="numberInput" placeholder="Enter a number" />
+        </div>
+
+        <div>
+            <label for="splitInput">Number of times to split:</label>
+            <input type="number" id="splitInput" placeholder="Enter number of splits" />
+        </div>
+
+        <button onclick="splitNumber()">Split</button>
+
+        <div id="result" class="container"></div>
+    </div>
+
+    <script>
+        function splitNumber() {
+            // Get the input values
+            const number = parseInt(document.getElementById('numberInput').value);
+            const splits = parseInt(document.getElementById('splitInput').value);
+
+            if (isNaN(number) || isNaN(splits) || splits <= 0) {
+                alert('Please enter valid numbers.');
+                return;
+            }
+
+            // Clear the previous result
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            // Calculate the base value for each div
+            const baseValue = Math.floor(number / splits);
+            let remainder = number % splits;
+
+            // Array of colors for variety
+            const colors = ['blue', 'pink', 'red', 'yellow', 'green', 'purple'];
+
+            // Create the divs based on the split
+            for (let i = 0; i < splits; i++) {
+                let divValue = baseValue + (remainder > 0 ? 1 : 0);
+                remainder--;
+
+                // Create a new div
+                const newDiv = document.createElement('div');
+                newDiv.classList.add('block');
+
+                // Assign color based on index (rotate through color list)
+                newDiv.classList.add(colors[i % colors.length]);
+
+                // Set the div content and width
+                newDiv.textContent = divValue;
+                newDiv.style.width = `${divValue * 30}px`; // Adjust width multiplier as needed
+                newDiv.style.height = '50px'; // Fixed height for consistency
+
+                // Append the div to the result container
+                resultDiv.appendChild(newDiv);
+            }
+        }
+    </script>
+
+</body>
+</html>
